@@ -1,0 +1,19 @@
+<nav class="navbar text-white bg-danger">
+  <span class="navbar-brand">Podstawy angulara</span>
+</nav>
+
+<div class="container">
+ <div class="d-flex flex-wrap justify-content-center">
+    <!-- <pre>
+{{(pokemons$ | async).pokemon |json}}
+</pre> --> 
+
+<app-pokemon [pokemon]="pikachu$ | async"></app-pokemon> 
+
+<ul class="list-group">
+  <li class="list-group-item"  *ngFor="let poke of pokemons">{{poke.name}}</li>
+</ul>
+    <!-- <app-pokemon *ngFor="let pokemon of pokemons" [pokemon]="pokemon"></app-pokemon> -->
+
+  </div>
+</div>
