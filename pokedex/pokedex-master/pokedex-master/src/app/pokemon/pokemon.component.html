@@ -1,7 +1,22 @@
-<div class="card text-left my-3" *ngIf="pokemon$ | async; let pokemon">
+<div class="card text-left my-3" style="width: 600px" *ngIf="pokemon$ | async; let pokemon">
   <div class="card-body">
     <h4 class="card-title">{{ pokemon.name|uppercase }}</h4>
-    <h4 class="card-title"><img class="" [src]="pokemon.sprites.front_default" alt="" /></h4>
-    <p class="card-text">{{ pokemon.base_experience }}</p>
+    <h4 class="card-title" ><img class=""  [src]="pokemon.sprites.front_default" alt="" /></h4>
+      <div class="card-body">
+        <div ><span class="badge badge-success" style="display: block; margin-bottom: 30px;">Moves</span>   </div>
+        
+        <ng-container *ngFor="let move of pokemon.moves">
+          <span class="badge badge-pill badge-primary mr-2" style="margin-right: 200px"[ngClass]="badge-info">
+            {{ move.move.name | uppercase }}
+          </span>
+        </ng-container>      
+      </div>
+
   </div>
+
+
+
+
+
 </div>
+

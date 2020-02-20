@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 
+
 @NgModule({
   declarations: [AppComponent, PokemonListComponent, PokemonComponent],
   imports: [BrowserModule, HttpClientModule],
