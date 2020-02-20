@@ -1,38 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Pokemon } from '../shared/models/pokemon.model';
 
+import { Component, OnInit, Input } from '@angular/core';
+import { PokemonService } from '../services/pokemon.service';
+import { Observable } from 'rxjs';
+import { Pokemon } from '../shared/models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
-  styleUrls: ['./pokemon.component.css']
+  styleUrls: ['./pokemon.component.scss']
 })
 export class PokemonComponent implements OnInit {
-
-  @Input()
-  pokemon: Pokemon;
-
-  constructor() { }
+  pokemon$: Observable<Pokemon>;
+  
+  constructor(private pokemonService: PokemonService) {
+    this.pokemon$ = this.pokemonService.pokemon$;
+  }
 
   ngOnInit() {
   }
-
-
-  getColorByType(type: string): string {
-    switch (type) {
-      case 'fire':
-        return 'badge-danger';
-      case 'ice':
-        return 'badge-info';
-      case "bug":
-        return 'badge-danger';
-      case "poison":
-        return 'badge-warning';
-      case "flying":
-        return 'badge-primary';
-      default:
-return 'badge-success';    }
-  }
-
-
 }

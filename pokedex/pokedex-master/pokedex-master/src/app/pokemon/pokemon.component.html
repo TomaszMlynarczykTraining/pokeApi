@@ -1,22 +1,7 @@
-<div class="card m-3" style="max-width: 18rem;">
-  <h5 class="card-header">{{ pokemon.name | lowercase }}</h5>
+<div class="card text-left my-3" *ngIf="pokemon$ | async; let pokemon">
   <div class="card-body">
-    <img  class="card-image-top w-100" [src]="pokemon.sprites.front_default" />
-    <h5 class="card-title"></h5>
-
-    <ng-container *ngFor="let type of pokemon.types">
-
-      <span class="badge badge-pill badge-primary mr-2" [ngClass]="getColorByType(type.type.name)">
-        {{ type.type.name | uppercase }}
-      </span>
-    </ng-container>
-
-
-    <p class="card-text">
-      <span>
-        {{ pokemon.weight | currency:'GBP'}}
-        {{ pokemon.birthDate | date:'dd.MM.yyyy HH:mm EEEE LLLL':'+0000':'en-US'}}
-      </span>
-    </p>
+    <h4 class="card-title"><img class="" [src]="pokemon.sprites.front_default" alt="" />{{ pokemon.name }}</h4>
+    <p class="card-text">{{ pokemon | json }}</p>
+    
   </div>
 </div>

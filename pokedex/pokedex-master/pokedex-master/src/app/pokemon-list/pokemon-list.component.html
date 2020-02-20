@@ -1,0 +1,6 @@
+  
+<ul class="list-group my-3">
+    <li class="list-group-item" *ngFor="let pokemon of (pokemons$ | async)?.results" (click)=getPokemon(pokemon.url)>
+        {{ pokemon.name }}
+    </li>
+</ul>
