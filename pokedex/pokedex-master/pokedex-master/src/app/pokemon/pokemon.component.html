@@ -2,8 +2,16 @@
   <div class="card-body">
     <h4 class="card-title">{{ pokemon.name|uppercase }}</h4>
     <h4 class="card-title" ><img class=""  [src]="pokemon.sprites.front_default" alt="" /></h4>
+
+    <h5><span class="badge badge-secondary">Heigth: {{ pokemon.height }} cm </span></h5>
+
+    <h5><span class="badge badge-secondary"> Base: {{ pokemon.base_experience }} EXP</span></h5>
+      <h5><span class="badge badge-secondary">Weight: {{ pokemon.weight }} kg</span></h5>
+        <h5><span class="badge badge-secondary"> Order: {{ pokemon.order }}</span></h5>
+
+    
       <div class="card-body">
-        <div ><span class="badge badge-success" style="display: block; margin-bottom: 30px;">Moves</span>   </div>
+        <div ><h4><span class="badge badge-success" style="display: block; margin-bottom: 30px;">Moves</span>  </h4> </div>
         
         <ng-container *ngFor="let move of pokemon.moves">
           <span class="badge badge-pill badge-primary mr-2" style="margin-right: 200px"[ngClass]="badge-info">
@@ -13,7 +21,6 @@
       </div>
 
   </div>
-
 
 
 
