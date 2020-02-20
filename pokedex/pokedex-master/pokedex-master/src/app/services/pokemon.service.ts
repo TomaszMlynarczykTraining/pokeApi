@@ -9,13 +9,21 @@ import { PokeData } from '../shared/models/pokdata.model';
   providedIn: 'root'
 })
 export class PokemonService {
+
   pokemons$: Observable<PokeData>;
   pokemon$: Observable<Pokemon>;
   private _pokemon = new Subject<string>();
+  private _pokemons = new Subject<string>();
 
   constructor(private httpClient: HttpClient) {
     const ROOT_LINK = 'https://pokeapi.co/api/v2/pokemon/';
     this.pokemons$ = this.httpClient.get<PokeData>(ROOT_LINK);
+
+    this.pokemons$=this._pokemons.asObservable().pipe(
+      switchMap(url => {
+        return this.httpClient.get<PokeData>(url);
+      })
+    );
     this.pokemon$ = this._pokemon.asObservable().pipe(
       switchMap(url => {
         return this.httpClient.get<Pokemon>(url);
@@ -26,4 +34,9 @@ export class PokemonService {
   getPokemonDetails(url: string) {
     this._pokemon.next(url);
   }
+
+  loadNextPokemons(url: string){
+    this._pokemons.next(url);
+  }
+
 }

@@ -1,7 +1,7 @@
 <div class="card text-left my-3" *ngIf="pokemon$ | async; let pokemon">
   <div class="card-body">
-    <h4 class="card-title"><img class="" [src]="pokemon.sprites.front_default" alt="" />{{ pokemon.name }}</h4>
-    <p class="card-text">{{ pokemon | json }}</p>
-    
+    <h4 class="card-title">{{ pokemon.name|uppercase }}</h4>
+    <h4 class="card-title"><img class="" [src]="pokemon.sprites.front_default" alt="" /></h4>
+    <p class="card-text">{{ pokemon.base_experience }}</p>
   </div>
 </div>

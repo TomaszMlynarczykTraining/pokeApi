@@ -1,6 +1,11 @@
-  
+
+ <div>
+    <button type="button" class="btn btn-danger btn-lg" (click)=backToPreviousPokemons()>Previous 20 pokemons</button>
+    <button type="button" class="btn btn-primary btn-lg" style= "margin-left: 20px"  (click)=loadNextPokemons()>Next 20 pokemons</button>
+</div> 
+
 <ul class="list-group my-3">
     <li class="list-group-item" *ngFor="let pokemon of (pokemons$ | async)?.results" (click)=getPokemon(pokemon.url)>
-        {{ pokemon.name }}
+        {{ pokemon.name|titlecase }}
     </li>
 </ul>
